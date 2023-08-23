@@ -40,11 +40,11 @@ class Program
         switch (eleccion)
         {
             case 1:
-                Console.WriteLine(triangulo.Area());
+                Program.MostrarResultado("El area del triangulo es: " + triangulo.Area());
                 break;
 
             case 2:
-                Console.WriteLine(triangulo.Perimetro());
+                Program.MostrarResultado("El perimetro del triangulo es: " + triangulo.Perimetro());
                 break;
         }
     }
@@ -65,11 +65,11 @@ class Program
         switch (eleccion)
         {
             case 1:
-                Console.WriteLine(circulo.Area());
+                Program.MostrarResultado("El area del circulo es: " + circulo.Area());
                 break;
 
             case 2:
-                Console.WriteLine(circulo.Perimetro());
+                Program.MostrarResultado("El perimetro del circulo es: " + circulo.Perimetro());
                 break;
         }
     }
@@ -87,7 +87,7 @@ class Program
             case 1:
                 Console.WriteLine("Ingrese punto 2: ");
                 Punto punto2 = LeerPuntoXY();
-                Console.WriteLine(punto.CalcularDistanciaDesde(punto2));
+                Program.MostrarResultado("La distancia entre puntos es: " + punto.CalcularDistanciaDesde(punto2));
                 break;
         }
     }
@@ -116,6 +116,7 @@ class Program
                 Console.WriteLine("Error: Ingrese un número válido.");
             }
         } while (!int.TryParse(eleccion, out opcionElegida));
+        Console.WriteLine("");
 
         return opcionElegida;
     }
@@ -126,6 +127,14 @@ class Program
         int x = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Ingrese coordenada Y: ");
         int y = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("");
+
         return new Punto(x, y);
+    }
+
+    static void MostrarResultado(string resultado)
+    {
+        Console.WriteLine(resultado);
+        Console.ReadKey();
     }
 }
