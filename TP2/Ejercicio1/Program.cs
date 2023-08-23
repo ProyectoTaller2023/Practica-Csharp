@@ -15,17 +15,17 @@ class Program
         {
             case 1:
                 ManejarOpcionTriangulo();
-            break;
+                break;
 
             case 2:
                 ManejarOpcionCirculo();
-            break;
+                break;
             case 3:
                 ManejarOpcionPunto();
-            break;
+                break;
         }
     }
-    
+
     static void ManejarOpcionTriangulo()
     {
         string[] opciones = { "Obtener area", "Obtener perimetro" };
@@ -41,12 +41,12 @@ class Program
         {
             case 1:
                 Console.WriteLine(triangulo.Area());
-            break;
+                break;
 
             case 2:
                 Console.WriteLine(triangulo.Perimetro());
-            break;
-        }   
+                break;
+        }
     }
 
     static void ManejarOpcionCirculo()
@@ -109,12 +109,12 @@ class Program
 
         do
         {
-          eleccion = Console.ReadLine();
-        
+            eleccion = Console.ReadLine();
+
             if (!int.TryParse(eleccion, out opcionElegida))
             {
                 Console.WriteLine("Error: Ingrese un número válido.");
-            }            
+            }
         } while (!int.TryParse(eleccion, out opcionElegida));
 
         return opcionElegida;
