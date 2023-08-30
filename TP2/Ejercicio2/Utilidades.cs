@@ -1,4 +1,5 @@
-﻿using Ejercicio1;
+﻿using Ejercicio2;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,21 +39,14 @@ namespace MisUtilidades
             return opcionElegida;
         }
 
+       
+
+
         internal static void MostrarResultado(string resultado)
         {
             Console.WriteLine(resultado);
             Console.ReadKey();
         }
-
-        internal static Punto LeerPuntoXY()
-        {
-            Console.WriteLine("Ingrese coordenada X: ");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Ingrese coordenada Y: ");
-            int y = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("");
-
-            return new Punto(x, y);
-        }
     }
 }
+
