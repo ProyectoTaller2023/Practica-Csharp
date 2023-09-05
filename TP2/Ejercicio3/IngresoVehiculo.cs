@@ -36,6 +36,7 @@ namespace Ejercicio3
         public DateTime FechaIngreso
         {
             get { return iFechaIngreso; }
+            private set { iFechaIngreso = value; }
         }
 
         public DateTime? FechaEgreso
@@ -47,6 +48,7 @@ namespace Ejercicio3
         public string id
         {
             get { return iId; }
+            private set { iId = value; }
         }
 
         public int MinutosDesdeIngreso()

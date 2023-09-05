@@ -1,8 +1,10 @@
 ﻿using Ejercicio3;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Reflection.Metadata;
+using System.Xml;
 
-public class IngresoVehiculoConfiguration : IEntityTypeConfiguration<IngresoVehiculo>
+internal class IngresoVehiculoConfiguration : IEntityTypeConfiguration<IngresoVehiculo>
 {
     public void Configure(EntityTypeBuilder<IngresoVehiculo> builder)
     {

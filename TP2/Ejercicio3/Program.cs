@@ -62,22 +62,24 @@ class Program
     {
         Console.WriteLine("Ingrese la patente del vehiculo");
         string patente = Console.ReadLine();
-        bool egresoExitoso = Estacionamiento.RegistrarEgresoVehiculo(patente);
-        if (egresoExitoso)
+        float? costo = Estacionamiento.CalcularCosto(patente);
+
+        if (costo != null)
         {
-            float? costo = Estacionamiento.CalcularCosto(patente);
-            if (costo != null)
+            bool egresoExitoso = Estacionamiento.RegistrarEgresoVehiculo(patente);
+            if (egresoExitoso)
             {
-               Console.WriteLine($"El vehiculo egreso correctamente, tiene un costo de {costo}");
+                Console.WriteLine($"El vehiculo egreso correctamente, tiene un costo de {costo}");
+
             }
             else
             {
-               Console.WriteLine($"Un vehiculo con patente {patente} no se encuentra estacionado");
+                Console.WriteLine($"Ocurrio un error al registrar el egreso de un vehiculo con patente {patente}");
             }
         }
         else
         {
-            Console.WriteLine($"Un vehiculo con patente {patente} no se encuentra estacionado");
+            Console.WriteLine($"Ocurrio un error en el registro del egreso del vehiculo con patente {patente}, error al calcular el costo, compruebe la patente ingresada.");
         }
         Console.ReadKey();
     }
