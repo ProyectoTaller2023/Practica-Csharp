@@ -10,6 +10,7 @@ namespace Ejercicio3
     {
         private string iPatente;
         private DateTime iFechaIngreso;
+        private DateTime? iFechaEgreso;
         private int iLugarAsignado;
 
         public IngresoVehiculo(string patente, int lugarAsignado)
@@ -17,6 +18,7 @@ namespace Ejercicio3
             this.iPatente = patente;
             this.iFechaIngreso = DateTime.Now;
             this.iLugarAsignado = lugarAsignado;
+            this.iFechaEgreso = null;
         }   
 
         public string Patente
@@ -32,6 +34,12 @@ namespace Ejercicio3
         public DateTime FechaIngreso
         {
             get { return iFechaIngreso; }
+        }
+
+        public DateTime? FechaEgreso
+        {
+            get { return iFechaEgreso; }
+            set { iFechaEgreso = value; }
         }
 
         public int MinutosDesdeIngreso()

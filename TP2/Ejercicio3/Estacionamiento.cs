@@ -36,17 +36,17 @@ namespace Ejercicio3
             return -1;
         }   
 
-        public float? RegistrarEgresoVehiculo(string patente)
+        public bool RegistrarEgresoVehiculo(string patente)
         {
             IngresoVehiculo? ingreso = BuscarIngresoVehiculo(patente);
             if (ingreso != null)
             {
-                float costo = CalcularCosto(ingreso);
                 lugares[ingreso.LugarAsignado] = null;
-                return costo;
+                ingreso.FechaEgreso = DateTime.Now;
+                return true;
             }
 
-            return null;
+            return false;
         }
 
         public IngresoVehiculo? BuscarIngresoVehiculo(string patente)
@@ -61,16 +61,21 @@ namespace Ejercicio3
             return null;
         }
 
-        private float CalcularCosto(IngresoVehiculo ingreso)
+        public float? CalcularCosto(string patente)
         {
-            float costoXmediaHora = costoXhora / 2; 
-            int minutos = ingreso.MinutosDesdeIngreso();
-            int mediasHoras = minutos / 30; 
-            if (minutos % 30 != 0) 
+            IngresoVehiculo? ingreso = BuscarIngresoVehiculo(patente);
+            if (ingreso != null)
             {
-                mediasHoras++;
+                float costoXmediaHora = costoXhora / 2; 
+                int minutos = ingreso.MinutosDesdeIngreso();
+                int mediasHoras = minutos / 30; 
+                if (minutos % 30 != 0) 
+                {
+                    mediasHoras++;
+                }
+                return mediasHoras * costoXmediaHora;    
             }
-            return mediasHoras * costoXmediaHora;
+            return null;
         }
     }
 }
