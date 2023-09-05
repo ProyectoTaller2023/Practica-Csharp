@@ -12,9 +12,11 @@ namespace Ejercicio3
         private DateTime iFechaIngreso;
         private DateTime? iFechaEgreso;
         private int iLugarAsignado;
+        private string iId;
 
         public IngresoVehiculo(string patente, int lugarAsignado)
         {
+            this.iId = Guid.NewGuid().ToString();
             this.iPatente = patente;
             this.iFechaIngreso = DateTime.Now;
             this.iLugarAsignado = lugarAsignado;
@@ -40,6 +42,11 @@ namespace Ejercicio3
         {
             get { return iFechaEgreso; }
             set { iFechaEgreso = value; }
+        }
+
+        public string id
+        {
+            get { return iId; }
         }
 
         public int MinutosDesdeIngreso()

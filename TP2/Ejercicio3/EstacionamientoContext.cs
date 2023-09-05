@@ -16,5 +16,11 @@ namespace Ejercicio3
             base.OnConfiguring(optionsBuilder);
             optionsBuilder.UseSqlServer(@"Server=localhost;Database=EstacionamientoDB;Trusted_Connection=True;TrustServerCertificate=True");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new IngresoVehiculoConfiguration());
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

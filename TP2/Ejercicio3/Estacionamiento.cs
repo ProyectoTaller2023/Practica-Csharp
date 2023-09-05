@@ -18,6 +18,11 @@ namespace Ejercicio3
             if (lugarLibre != -1)
             {
                 IngresoVehiculo ingreso = new IngresoVehiculo(patente, lugarLibre);
+                using (EstacionamientoContext context = new EstacionamientoContext())
+                {
+                    context.Ingresos.Add(ingreso);
+                    context.SaveChanges();
+                }
                 lugares[lugarLibre] = ingreso;
                 return lugarLibre;
             }
@@ -41,8 +46,13 @@ namespace Ejercicio3
             IngresoVehiculo? ingreso = BuscarIngresoVehiculo(patente);
             if (ingreso != null)
             {
+                using (EstacionamientoContext context = new EstacionamientoContext())
+                {
+                    ingreso.FechaEgreso = DateTime.Now; 
+                    context.Ingresos.Update(ingreso);
+                    context.SaveChanges();
+                }
                 lugares[ingreso.LugarAsignado] = null;
-                ingreso.FechaEgreso = DateTime.Now;
                 return true;
             }
 
